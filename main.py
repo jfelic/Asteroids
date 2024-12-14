@@ -23,6 +23,7 @@ def main():
         
         # Update
         player.update(dt)
+        player.move(dt)
 
         # Draw
         screen.fill("black")
