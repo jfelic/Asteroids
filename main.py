@@ -16,14 +16,21 @@ def main():
     player = Player((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2), PLAYER_RADIUS) 
 
     while True:
-        screen.fill("black")
-        player.draw(screen)
-        pygame.display.flip()
-        dt = (clock.tick(60)) / 1000
-
+        # Handle events
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+        
+        # Update
+        player.update(dt)
+
+        # Draw
+        screen.fill("black")
+        player.draw(screen)
+        pygame.display.flip()
+
+        # Update delta time
+        dt = (clock.tick(60)) / 1000
 
 
 main()
